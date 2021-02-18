@@ -8,8 +8,6 @@ window = tk.Tk()
 #other stuff
 window.title("Weblock")
 window.geometry("500x350+480+150")
-icon = tk.PhotoImage(file = 'src/icon.png')
-window.iconphoto(False, icon)
 
 #change directory to "C:\Windows\System32\Drivers\etc"
 os.chdir(r"C:\Windows\System32\Drivers\etc")
