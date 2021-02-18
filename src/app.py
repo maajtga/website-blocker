@@ -16,9 +16,7 @@ os.chdir(r"C:\Windows\System32\Drivers\etc")
 
 #create function to edit the hosts file
 def EditHost():
-    edit = open("hosts", "w")
-    t = edit.read()
-    print(t)
+    print("WOrking")
 
 #create labels
 title = tk.Label(window, text = "Website Blocker", font=("Helvetica", 18))
