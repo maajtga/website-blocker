@@ -12,9 +12,17 @@ window.geometry("500x350+480+150")
 #change directory to "C:\Windows\System32\Drivers\etc"
 os.chdir(r"C:\Windows\System32\Drivers\etc")
 
+#website variable 
+website = tk.StringVar()
+
 #create function to edit the hosts file
 def EditHost():
-    print("WOrking")
+    website = web_entry.get()
+    block_site = ['www.' + website, website]
+    ip = "127.0.0.1"
+
+    print(block_site)
+    print(ip)
 
 #create labels
 title = tk.Label(window, text = "Website Blocker", font=("Helvetica", 18))
@@ -26,11 +34,9 @@ directions.place(x=65, y=100)
 info = tk.Label(window, text = "Enter Website Here", font=("Sans Serif", 12))
 info.place(x=170, y=220)
 
-#website variable 
-website = tk.StringVar()
 
 #create input box
-web_entry = tk.Entry(window, textvariable = website, font = ('calibre', 10 ,'normal'))
+web_entry = tk.Entry(window, font = ('calibre', 10 ,'normal'))
 web_entry.place(x=170, y=250)
 
 #create submit button
