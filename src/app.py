@@ -8,6 +8,7 @@ window = tk.Tk()
 #other stuff
 window.title("Weblock")
 window.geometry("500x350+480+150")
+window.resizable(False, False)
 
 #change directory to "C:\Windows\System32\Drivers\etc"
 os.chdir(r"C:\Windows\System32\Drivers\etc")
@@ -15,14 +16,30 @@ os.chdir(r"C:\Windows\System32\Drivers\etc")
 #website variable 
 website = tk.StringVar()
 
+#create edit variable
+edit = False
+
 #create function to edit the hosts file
 def EditHost():
+    global edit
+    edit = True
+    
     website = web_entry.get()
-    block_site = ['www.' + website, website]
-    ip = "127.0.0.1"
+    block_sites = ['www.' + website, website]
+    redirect_ip = "127.0.0.1"
 
-    print(block_site)
-    print(ip)
+    while edit:
+        with open('hosts',"r+") as file:
+            content = file.read()
+            for website in block_sites:
+                if website in content:
+                    pass
+                else:
+                    file.write("\n" + redirect_ip + "\t" + website + "\n")
+                    
+    
+    print(block_sites)
+    print(redirect_ip)
 
 #create labels
 title = tk.Label(window, text = "Website Blocker", font=("Helvetica", 18))
