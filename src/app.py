@@ -8,6 +8,8 @@ window = tk.Tk()
 #other stuff
 window.title("Weblock")
 window.geometry("500x350+480+150")
+Icon = tk.PhotoImage(file = os.path.join('icon.png'))
+window.iconphoto(False, Icon)
 window.resizable(False, False)
 
 #change directory to "C:\Windows\System32\Drivers\etc"
@@ -33,10 +35,13 @@ def EditHost():
             content = file.read()
             for website in block_sites:
                 if website in content:
-                    print("Website already blocked!")
+                    pass
+                    edit = False
                 else:
                     file.write("\n" + "     " + redirect_ip + "       " + website + "\n")
-                    print("This is working!")
+                    edit = False
+    
+    
     
 
 #create labels
